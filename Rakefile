@@ -71,6 +71,9 @@ MRuby::GemBox.new do |conf|
 
   # Use extensional Kernel module
   conf.gem :core => "mruby-kernel-ext"
+
+  # Customize
+  conf.gem :github => 'mattn/mruby-json'
 end
 __EOF__
   end
