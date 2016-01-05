@@ -74,6 +74,7 @@ MRuby::GemBox.new do |conf|
 
   # Customize
   conf.gem :github => 'mattn/mruby-json'
+  conf.gem :core => "mruby-string-utf8"
 end
 __EOF__
   end
