@@ -76,6 +76,7 @@ MRuby::GemBox.new do |conf|
   conf.gem :github => 'mattn/mruby-json'
   conf.gem :core => "mruby-string-utf8"
   conf.gem :core => "mruby-eval"
+  conf.gem :github => "iij/mruby-regexp-pcre"
 end
 __EOF__
   end
