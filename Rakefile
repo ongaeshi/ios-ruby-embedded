@@ -77,6 +77,10 @@ MRuby::GemBox.new do |conf|
   conf.gem :core => "mruby-string-utf8"
   conf.gem :core => "mruby-eval"
   conf.gem :github => "iij/mruby-regexp-pcre"
+
+  # mruby-require must be the last mrbgem specified in the build configuration
+  conf.gem :github => 'mattn/mruby-require'
+  # conf.gem '/Users/ongaeshi/Documents/mruby-require/'
 end
 __EOF__
   end
