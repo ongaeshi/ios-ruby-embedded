@@ -1,7 +1,6 @@
 XCODEROOT = %x[xcode-select -print-path].strip
 SIMSDKPATH = Dir["#{XCODEROOT}/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator*.sdk/"].sort.last
 IOSSDKPATH = Dir["#{XCODEROOT}/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS*.sdk/"].sort.last
-COMMON_DEFINES = "MRB_ENABLE_DEBUG_HOOK"
 
 task :verify_sysroot => [SIMSDKPATH, IOSSDKPATH]
 
@@ -98,7 +97,6 @@ end
 
 SIM_SYSROOT="#{SIMSDKPATH}"
 DEVICE_SYSROOT="#{IOSSDKPATH}"
-COMMON_DEFINES="#{COMMON_DEFINES}"
 
 MRuby::CrossBuild.new('ios-simulator') do |conf|
   conf.bins = []
@@ -108,8 +106,6 @@ MRuby::CrossBuild.new('ios-simulator') do |conf|
   conf.cc do |cc|
     cc.command = 'xcrun'
     cc.flags = %W(-sdk iphoneos clang -miphoneos-version-min=5.0 -arch i386 -isysroot \#{SIM_SYSROOT} -g -O3 -Wall -Werror-implicit-function-declaration)
-    cc.defines = %W(\#{COMMON_DEFINES})
-    cc.option_define = '-D%s'
   end
 
   conf.linker do |linker|
@@ -126,8 +122,6 @@ MRuby::CrossBuild.new('ios-simulator-x86_64') do |conf|
   conf.cc do |cc|
     cc.command = 'xcrun'
     cc.flags = %W(-sdk iphoneos clang -miphoneos-version-min=5.0 -arch x86_64 -isysroot \#{SIM_SYSROOT} -g -O3 -Wall -Werror-implicit-function-declaration)
-    cc.defines = %W(\#{COMMON_DEFINES})
-    cc.option_define = '-D%s'
   end
 
   conf.linker do |linker|
@@ -144,8 +138,6 @@ MRuby::CrossBuild.new('ios-armv7') do |conf|
   conf.cc do |cc|
     cc.command = 'xcrun'
     cc.flags = %W(-sdk iphoneos clang -arch armv7 -isysroot \#{DEVICE_SYSROOT} -g -O3 -Wall -Werror-implicit-function-declaration)
-    cc.defines = %W(\#{COMMON_DEFINES})
-    cc.option_define = '-D%s'
   end
 
   conf.linker do |linker|
@@ -162,8 +154,6 @@ MRuby::CrossBuild.new('ios-armv7s') do |conf|
   conf.cc do |cc|
     cc.command = 'xcrun'
     cc.flags = %W(-sdk iphoneos clang -arch armv7s -isysroot \#{DEVICE_SYSROOT} -g -O3 -Wall -Werror-implicit-function-declaration)
-    cc.defines = %W(\#{COMMON_DEFINES})
-    cc.option_define = '-D%s'
   end
 
   conf.linker do |linker|
@@ -180,8 +170,6 @@ MRuby::CrossBuild.new('ios-arm64') do |conf|
   conf.cc do |cc|
     cc.command = 'xcrun'
     cc.flags = %W(-sdk iphoneos clang -arch arm64 -isysroot \#{DEVICE_SYSROOT} -g -O3 -Wall -Werror-implicit-function-declaration)
-    cc.defines = %W(\#{COMMON_DEFINES})
-    cc.option_define = '-D%s'
   end
 
   conf.linker do |linker|
