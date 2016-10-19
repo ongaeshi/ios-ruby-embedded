@@ -106,6 +106,8 @@ SIM_SYSROOT="#{SIMSDKPATH}"
 DEVICE_SYSROOT="#{IOSSDKPATH}"
 
 MRuby::CrossBuild.new('ios-simulator') do |conf|
+  enable_debug
+
   conf.bins = []
 
   conf.gembox 'custom'
@@ -122,6 +124,8 @@ MRuby::CrossBuild.new('ios-simulator') do |conf|
 end
 
 MRuby::CrossBuild.new('ios-simulator-x86_64') do |conf|
+  enable_debug
+
   conf.bins = []
 
   conf.gembox 'custom'
@@ -138,6 +142,8 @@ MRuby::CrossBuild.new('ios-simulator-x86_64') do |conf|
 end
 
 MRuby::CrossBuild.new('ios-armv7') do |conf|
+  enable_debug
+
   conf.bins = []
 
   conf.gembox 'custom'
@@ -154,6 +160,8 @@ MRuby::CrossBuild.new('ios-armv7') do |conf|
 end
 
 MRuby::CrossBuild.new('ios-armv7s') do |conf|
+  enable_debug
+
   conf.bins = []
 
   conf.gembox 'custom'
@@ -170,6 +178,8 @@ MRuby::CrossBuild.new('ios-armv7s') do |conf|
 end
 
 MRuby::CrossBuild.new('ios-arm64') do |conf|
+  enable_debug
+
   conf.bins = []
 
   conf.gembox 'custom'
