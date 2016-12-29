@@ -83,6 +83,7 @@ MRuby::GemBox.new do |conf|
   conf.gem :github => 'mattn/mruby-http'
   conf.gem :github => 'matsumoto-r/mruby-simplehttpserver'
   conf.gem :github => 'ksss/mruby-method'
+  conf.gem :github => 'mattn/mruby-base64'
 
   # mruby-require must be the last mrbgem specified in the build configuration
   conf.gem :github => 'mattn/mruby-require'
